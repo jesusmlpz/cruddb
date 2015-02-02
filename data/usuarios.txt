@@ -1,0 +1,9 @@
+0|Antonio|agustincl@gmail.com|||asdasdasdasd|si,spam|o|Valencia|Cine,Deporte,Viajes|Enviar|
+2|Jesús|agustincl@gmail.com|||asdasdasdasd|si,spam|o|Valencia|Cine,Deporte,Viajes|Enviar consulta|
+|Jesús|dsfdsf@sdfsdf.com|jlkj|||si|h|BCN|Deporte,Viajes|Enviar consulta|
+|Jesús|dsfdsf@sdfsdf.com|asdasd|||Valencia|Enviar consulta|
+10|jesus|dsfdsf@sdfsdf.com||||Valencia|Enviar consulta|||
+|juan|dsfdsf@sdfsdf.com|sdasd|||Madrid|Cine|Enviar consulta|
+|otro|sdfsdf@sdfsdf.es||||Valencia|Enviar|
+|sdfsdfas|dfsdf@sdfdsf.com||||Valencia|Enviar|
+|Ultimo usuario|ultimo@mail.com|pass34|||o|Valencia|Deporte|Enviar|
