@@ -1,17 +1,37 @@
 <?php
 
-function insertUser($config, $data)
+function insertUserDB($config, $data)
 {
+    move_uploaded_file($_FILES['photo']['tmp_name'],
+                        $_SERVER['DOCUMENT_ROOT']."/".$_FILES['photo']['name']);
+    
+    $data['photo']=$_FILES['photo']['name'];
+    $data['iduser'] = hash('sha256', $data['email']);
+    
+    // Conectar al DBMS
+    $link = mysqli_connect($config['db']['host'],
+                             $config['db']['user'],
+                             $config['db']['password']);
+							 
+    // Seleccionar la DB
+    mysqli_select_db($link, $config['db']['database']);
+    
+    $columns =getColumns($config, 'users');
+    
+    $query = array();
     foreach ($data as $key => $value)
     {
-        if(is_array($value))
-            $data[$key]=implode(",", $value);
+        if(!in_array($key, $columns))
+            unset ($data[$key]);
+        else 
+            $query[] = $key."='".$value."'";
     }
-    
-    move_uploaded_file($_FILES['photo']['tmp_name'],
-    $_SERVER['DOCUMENT_ROOT']."/".$_FILES['photo']['name']);
-    
-    file_put_contents($filename,"\n".implode("|",$data),FILE_APPEND);
-    
-    return $data;
+    $query = implode(",", $query);
+    $query = 'INSERT INTO users SET '.$query;
+   
+    $result = mysqli_query($link, $query);   
+   
+   mysqli_close($link);
+   
+    return $result;
 }
